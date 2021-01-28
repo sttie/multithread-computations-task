@@ -9,18 +9,18 @@
 MatrixMultiplication::MatrixMultiplication(
         std::string id, int n_, int m_
 ) : IComputation(std::move(id)), n(n_), m(m_) {
-    matrix1.resize(n);
-    
     // Заполнение матриц рандомными числами
     // rand() - это, скорее, С, а не С++, но здесь я не хотел
     // загрязнять код созданием объектов-генераторов, да и "хорошая"
     // рандомность здесь совсем не нужна
+    matrix1.resize(n);
     for (int i = 0; i < n; ++i) {
         matrix1[i].resize(m);
         for (int j = 0; j < m; ++j) {
             matrix1[i][j] = rand() % 100;
         }
     }
+    
     matrix2.resize(m);
     for (int i = 0; i < m; ++i) {
         matrix2[i].resize(n);
